@@ -1,0 +1,56 @@
+[package]
+name = "citybound"
+version = "0.1.2"
+authors = ["Anselm Eickhoff <anselm.eickhoff@gmail.com>"]
+license = "AGPL-3.0"
+
+[workspace]
+members = [
+    "./lib/allocators",
+    "./lib/chunked",
+    "./lib/compact",
+    "./lib/compact_macros",
+    "./lib/descartes",
+    "./lib/kay",
+    "./lib/kay_macros",
+    "./lib/monet"
+]
+
+[dependencies]
+ordered-float = "0.2.3"
+itertools = "0.5.5"
+clippy = "0.0.106"
+random = "0.12.2"
+fnv = "1.0.3"
+roaring = "0.4.0"
+open = "1.1.1"
+serde = "=0.8.21"
+serde_derive = "=0.8.21"
+serde_json = "=0.8.4"
+app_dirs = "1.1.1"
+
+[dependencies.compact]
+path = "./lib/compact/"
+
+[dependencies.compact_macros]
+path = "./lib/compact_macros/"
+
+[dependencies.kay]
+path = "./lib/kay/"
+
+[dependencies.kay_macros]
+path = "./lib/kay_macros/"
+
+[dependencies.descartes]
+path = "./lib/descartes/"
+
+[dependencies.monet]
+path = "./lib/monet/"
+
+[profile.dev]
+opt-level = 1
+codegen-units = 4
+
+[profile.release]
+debug = true
+codegen-units = 4
